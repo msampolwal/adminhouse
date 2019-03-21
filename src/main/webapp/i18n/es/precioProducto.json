@@ -1,0 +1,25 @@
+
+{
+    "adminhouseApp": {
+        "precioProducto" : {
+            "home": {
+                "title": "Precio Productos",
+                "createLabel": "Crear nuevo Precio Producto",
+                "createOrEditLabel": "Crear o editar Precio Producto"
+            },
+            "created": "Un nuevo Precio Producto ha sido creado con el identificador {{ param }}",
+            "updated": "Un Precio Producto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Precio Producto ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Precio Producto {{ id }}?"
+            },
+            "detail": {
+                "title": "Precio Producto"
+            },
+            "precio": "Precio",
+            "cantidad": "Cantidad",
+            "producto": "Producto",
+            "unidadMedida": "Unidad Medida"
+        }
+    }
+}

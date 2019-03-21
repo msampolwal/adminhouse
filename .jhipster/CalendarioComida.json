@@ -1,0 +1,35 @@
+{
+    "name": "CalendarioComida",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "grupo",
+            "otherEntityName": "grupo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "dia",
+            "otherEntityName": "dia",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190123040638",
+    "entityTableName": "calendario_comida",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

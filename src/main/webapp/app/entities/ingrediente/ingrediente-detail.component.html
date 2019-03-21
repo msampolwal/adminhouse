@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ingrediente">
+            <h2><span jhiTranslate="adminhouseApp.ingrediente.detail.title">Ingrediente</span> {{ingrediente.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adminhouseApp.ingrediente.cantidad">Cantidad</span></dt>
+                <dd>
+                    <span>{{ingrediente.cantidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.ingrediente.comida">Comida</span></dt>
+                <dd>
+                    <div *ngIf="ingrediente.comidaId">
+                        <a [routerLink]="['/comida', ingrediente.comidaId, 'view']">{{ingrediente.comidaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.ingrediente.producto">Producto</span></dt>
+                <dd>
+                    <div *ngIf="ingrediente.productoId">
+                        <a [routerLink]="['/producto', ingrediente.productoId, 'view']">{{ingrediente.productoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ingrediente', ingrediente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

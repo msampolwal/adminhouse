@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemDia">
+            <h2><span jhiTranslate="adminhouseApp.itemDia.detail.title">Item Dia</span> {{itemDia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adminhouseApp.itemDia.tipo">Tipo</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'adminhouseApp.TipoComida.' + itemDia.tipo}}">{{itemDia.tipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.itemDia.dia">Dia</span></dt>
+                <dd>
+                    <div *ngIf="itemDia.diaId">
+                        <a [routerLink]="['/dia', itemDia.diaId, 'view']">{{itemDia.diaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.itemDia.comida">Comida</span></dt>
+                <dd>
+                    <div *ngIf="itemDia.comidaId">
+                        <a [routerLink]="['/comida', itemDia.comidaId, 'view']">{{itemDia.comidaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-dia', itemDia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

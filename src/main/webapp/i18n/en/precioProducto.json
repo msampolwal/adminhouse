@@ -1,0 +1,25 @@
+
+{
+    "adminhouseApp": {
+        "precioProducto" : {
+            "home": {
+                "title": "Product price",
+                "createLabel": "Create a new Product price",
+                "createOrEditLabel": "Create or edit a Product price"
+            },
+            "created": "A new Product price is created with identifier {{ param }}",
+            "updated": "A Product price is updated with identifier {{ param }}",
+            "deleted": "A Product price is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product price {{ id }}?"
+            },
+            "detail": {
+                "title": "Product price"
+            },
+            "precio": "Price",
+            "cantidad": "Quantity",
+            "producto": "Product",
+            "unidadMedida": "Unit of measurement"
+        }
+    }
+}

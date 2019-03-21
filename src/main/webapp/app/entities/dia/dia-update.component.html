@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-dia-heading" jhiTranslate="adminhouseApp.dia.home.createOrEditLabel">Create or edit a Dia</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!dia.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="dia.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminhouseApp.dia.diaSemana" for="field_diaSemana">Dia Semana</label>
+                    <select class="form-control" name="diaSemana" [(ngModel)]="dia.diaSemana" id="field_diaSemana" >
+                        <option value="LUNES">{{'adminhouseApp.DiaSemana.LUNES' | translate}}</option>
+                        <option value="MARTES">{{'adminhouseApp.DiaSemana.MARTES' | translate}}</option>
+                        <option value="MIERCOLES">{{'adminhouseApp.DiaSemana.MIERCOLES' | translate}}</option>
+                        <option value="JUEVES">{{'adminhouseApp.DiaSemana.JUEVES' | translate}}</option>
+                        <option value="VIERNES">{{'adminhouseApp.DiaSemana.VIERNES' | translate}}</option>
+                        <option value="SABADO">{{'adminhouseApp.DiaSemana.SABADO' | translate}}</option>
+                        <option value="DOMINGO">{{'adminhouseApp.DiaSemana.DOMINGO' | translate}}</option>
+                    </select>
+                </div>
+
+<!--                 <div class="form-group"> -->
+<!--                     <label class="form-control-label" jhiTranslate="adminhouseApp.dia.grupo" for="field_grupo">Grupo</label> -->
+<!--                     <select class="form-control" id="field_grupo" name="grupo" [(ngModel)]="dia.grupoId" > -->
+<!--                         <option [ngValue]="null"></option> -->
+<!--                         <option [ngValue]="grupoOption.id" *ngFor="let grupoOption of grupos; trackBy: trackGrupoById">{{grupoOption.id}}</option> -->
+<!--                     </select> -->
+<!--                 </div> -->
+                <ng-form name="addItemDiaForm" novalidate>
+		            <h2 id="jhi-item-dia-heading" jhiTranslate="adminhouseApp.itemDia.home.createOrEditLabel">Create or edit a Item Dia</h2>
+		            <div>
+		                <jhi-alert-error></jhi-alert-error>
+		                <div class="form-group" [hidden]="!itemDia.id">
+		                    <label for="id" jhiTranslate="global.field.id">ID</label>
+		                    <input type="text" class="form-control" id="id" name="id"
+		                        [(ngModel)]="itemDia.id" readonly />
+		                </div>
+		                <div class="form-group">
+		                    <label class="form-control-label" jhiTranslate="adminhouseApp.itemDia.tipo" for="field_tipo">Tipo</label>
+		                    <select class="form-control" name="tipo" [(ngModel)]="itemDia.tipo" id="field_tipo" >
+		                        <option value="DESAYUNO">{{'adminhouseApp.TipoComida.DESAYUNO' | translate}}</option>
+		                        <option value="ALMUERZO">{{'adminhouseApp.TipoComida.ALMUERZO' | translate}}</option>
+		                        <option value="MERIENDA">{{'adminhouseApp.TipoComida.MERIENDA' | translate}}</option>
+		                        <option value="CENA">{{'adminhouseApp.TipoComida.CENA' | translate}}</option>
+		                    </select>
+		                </div>
+		
+		                <div class="form-group">
+		                    <label class="form-control-label" jhiTranslate="adminhouseApp.itemDia.comida" for="field_comida">Comida</label>
+		                    <select class="form-control" id="field_comida" name="comida" [(ngModel)]="itemDia.comida" >
+		                        <option [ngValue]="null"></option>
+		                        <option [ngValue]="comidaOption" *ngFor="let comidaOption of comidas; trackBy: trackComidaById">{{comidaOption.nombre}}</option>
+		                    </select>
+		                </div>
+		            </div>
+		            <div>
+		                <button type="button" (click)="addItemDia()" id="add-item-dia" [disabled]="!itemDia.comida || !itemDia.tipo" class="btn btn-primary">
+		                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+		                </button>
+		            </div>
+		        </ng-form>
+            </div>
+            <div class="table-responsive" *ngIf="dia.items">
+		        <table class="table table-striped">
+		            <thead>
+		            <th><span jhiTranslate="adminhouseApp.itemDia.tipo">Tipo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+		            <th><span jhiTranslate="adminhouseApp.itemDia.comida">Comida</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+		            <th></th>
+		            </thead>
+		            <tbody>
+		            <tr *ngFor="let itemDia of dia.items ;trackBy: trackId">
+		                <td>{{itemDia.tipo}}</td>
+		                <td>{{itemDia.comidaNombre}}</td>
+		                <td class="text-right">
+		                    <div class="btn-group flex-btn-group-container">
+		                        <button type="button"
+		                                class="btn btn-primary btn-sm"
+		                                (click)="selectItemDia(itemDia)">
+		                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+		                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+		                        </button>
+		                        <button type="button"
+		                                class="btn btn-danger btn-sm"
+		                                (click)="removeItemDia(itemDia)">
+		                            <fa-icon [icon]="'times'"></fa-icon>
+		                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+		                        </button>
+		                    </div>
+		                </td>
+		            </tr>
+		            </tbody>
+		        </table>
+		    </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

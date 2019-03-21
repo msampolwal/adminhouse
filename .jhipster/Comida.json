@@ -1,0 +1,29 @@
+{
+    "name": "Comida",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ingredientes",
+            "otherEntityName": "ingrediente",
+            "otherEntityRelationshipName": "comida"
+        }
+    ],
+    "changelogDate": "20190123040635",
+    "entityTableName": "comida",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

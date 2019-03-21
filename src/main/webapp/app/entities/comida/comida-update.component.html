@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-comida-heading" jhiTranslate="adminhouseApp.comida.home.createOrEditLabel">Create or edit a Comida</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!comida.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="comida.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminhouseApp.comida.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                        [(ngModel)]="comida.nombre" required/>
+                    <div [hidden]="!(editForm.controls.nombre?.dirty && editForm.controls.nombre?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nombre?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div>
+                		<ng-form name="addIngredienteForm" novalidate>
+		                <h5 id="jhi-ingrediente-heading" jhiTranslate="adminhouseApp.comida.ingredientes">Ingredientes</h5>
+		                <div class="form-group">
+		                    <label class="form-control-label" jhiTranslate="adminhouseApp.ingrediente.cantidad" for="field_cantidad">Cantidad</label>
+		                    <input type="number" class="form-control" name="cantidad" id="field_cantidad"
+		                        [(ngModel)]="ingrediente.cantidad"/>
+		                </div>
+		                <div class="form-group">
+		                		<mat-form-field class="example-full-width">
+								<input matInput placeholder="Choose a product" [matAutocomplete]="auto" formControlName='userInput'>
+							</mat-form-field>
+							<span>Your choice is: {{usersForm.get('userInput').value | json}}</span>
+							<ng-form class="formProducts" [formGroup]='productsForm'>
+							  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+							    <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+							    <ng-container *ngIf="!isLoading">
+							      <mat-option *ngFor="let product  of productos" [value]="ingrediente.producto">
+							        <span>{{ product.nombre }}</span>
+							        <small> | ID: {{product.id}}</small>
+							      </mat-option>
+							    </ng-container>
+							  </mat-autocomplete>
+		                
+<!-- 		                    <label class="form-control-label" jhiTranslate="adminhouseApp.ingrediente.producto" for="field_producto">Producto</label> -->
+<!-- 		                    <select class="form-control" id="field_producto" name="producto" [(ngModel)]="ingrediente.producto"> -->
+<!-- 		                        <option [ngValue]="null"></option> -->
+<!-- 		                        <option [ngValue]="productoOption" *ngFor="let productoOption of productos; trackBy: trackProductoById">{{productoOption.nombre}}</option> -->
+<!-- 		                    </select> -->
+		                </div>
+			            <div>
+			                <button type="button" id="add-ingrediente" (click)="addIngrediente()" [disabled]="!ingrediente.cantidad || !ingrediente.producto" class="btn btn-primary">
+			                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.add">Add</span>
+							</button>
+						</div>
+					</ng-form>
+				</div>
+				<div class="table-responsive" *ngIf="comida.ingredientes">
+			        <table class="table table-striped">
+			            <thead>
+<!-- 			            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)"> -->
+			            <th><span jhiTranslate="adminhouseApp.ingrediente.cantidad">Cantidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+			            <th><span jhiTranslate="adminhouseApp.ingrediente.producto">Producto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+			            <th></th>
+<!-- 			            </tr> -->
+			            </thead>
+			            <tbody>
+			            <tr *ngFor="let ingrediente of comida.ingredientes ;trackBy: trackId">
+			                <td>{{ingrediente.cantidad}}</td>
+			                <td>{{ingrediente.productoNombre}}</td>
+			                <td class="text-right">
+			                    <div class="btn-group flex-btn-group-container">
+			                        <button type="button"
+			                                class="btn btn-primary btn-sm"
+			                                (click)="selectIngrediente(ingrediente)">
+			                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+			                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+			                        </button>
+			                        <button type="button"
+			                                class="btn btn-danger btn-sm"
+			                                (click)="removeIngrediente(ingrediente)">
+			                            <fa-icon [icon]="'times'"></fa-icon>
+			                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+			                        </button>
+			                    </div>
+			                </td>
+			            </tr>
+			            </tbody>
+			        </table>
+			    </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

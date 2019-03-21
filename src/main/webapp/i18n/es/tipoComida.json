@@ -1,0 +1,11 @@
+{
+    "adminhouseApp": {
+        "TipoComida" : {
+            "null": "",
+            "DESAYUNO": "Desayuno",
+            "ALMUERZO": "Almuerzo",
+            "MERIENDA": "Merienda",
+            "CENA": "Cena"
+        }
+    }
+}

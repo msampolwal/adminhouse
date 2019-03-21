@@ -1,0 +1,33 @@
+{
+    "name": "ItemDia",
+    "fields": [
+        {
+            "fieldName": "tipo",
+            "fieldType": "TipoComida",
+            "fieldValues": "DESAYUNO,ALMUERZO,MERIENDA,CENA"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "dia",
+            "otherEntityName": "dia",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "comida",
+            "otherEntityName": "comida",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190123040634",
+    "entityTableName": "item_dia",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

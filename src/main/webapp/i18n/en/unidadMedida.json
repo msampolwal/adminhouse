@@ -1,0 +1,22 @@
+
+{
+    "adminhouseApp": {
+        "unidadMedida" : {
+            "home": {
+                "title": "Units of measurement",
+                "createLabel": "Create a new Unit of measurement",
+                "createOrEditLabel": "Create or edit a Unit of measurement"
+            },
+            "created": "A new Unit of measurement is created with identifier {{ param }}",
+            "updated": "A Unit of measurement is updated with identifier {{ param }}",
+            "deleted": "A Unit of measurement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Unit of measurement {{ id }}?"
+            },
+            "detail": {
+                "title": "Unit of measurement"
+            },
+            "nombre": "Name"
+        }
+    }
+}

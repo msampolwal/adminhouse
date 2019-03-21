@@ -5,6 +5,22 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040632_added_entity_Grupo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040633_added_entity_Dia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040634_added_entity_ItemDia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040635_added_entity_Comida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040636_added_entity_Ingrediente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040637_added_entity_Producto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040638_added_entity_CalendarioComida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040639_added_entity_PrecioProducto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040640_added_entity_UnidadMedida.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190123040633_added_entity_constraints_Dia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040634_added_entity_constraints_ItemDia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040636_added_entity_constraints_Ingrediente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040637_added_entity_constraints_Producto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040638_added_entity_constraints_CalendarioComida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040639_added_entity_constraints_PrecioProducto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190123040632_added_entity_constraints_Grupo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

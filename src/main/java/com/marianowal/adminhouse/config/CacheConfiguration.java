@@ -38,6 +38,20 @@ public class CacheConfiguration {
             cm.createCache(com.marianowal.adminhouse.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.marianowal.adminhouse.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.marianowal.adminhouse.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Grupo.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Grupo.class.getName() + ".calendarioComidas", jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Grupo.class.getName() + ".dias", jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Dia.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Dia.class.getName() + ".items", jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.ItemDia.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Comida.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Comida.class.getName() + ".ingredientes", jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Ingrediente.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Producto.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.CalendarioComida.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.PrecioProducto.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.UnidadMedida.class.getName(), jcacheConfiguration);
+            cm.createCache(com.marianowal.adminhouse.domain.Grupo.class.getName() + ".users", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

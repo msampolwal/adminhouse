@@ -1,0 +1,14 @@
+{
+    "adminhouseApp": {
+        "DiaSemana" : {
+            "null": "",
+            "LUNES": "Monday",
+            "MARTES": "Tuesday",
+            "MIERCOLES": "Wednesday",
+            "JUEVES": "Thursday",
+            "VIERNES": "Friday",
+            "SABADO": "Saturday",
+            "DOMINGO": "Sunday"
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="adminhouseApp.precioProducto.home.title">Precio Productos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-precio-producto" [routerLink]="['/precio-producto/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="adminhouseApp.precioProducto.home.createLabel">
+            Create new Precio Producto
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="precioProductos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="precio"><span jhiTranslate="adminhouseApp.precioProducto.precio">Precio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cantidad"><span jhiTranslate="adminhouseApp.precioProducto.cantidad">Cantidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="productoId"><span jhiTranslate="adminhouseApp.precioProducto.producto">Producto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="unidadMedidaId"><span jhiTranslate="adminhouseApp.precioProducto.unidadMedida">Unidad Medida</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let precioProducto of precioProductos ;trackBy: trackId">
+                <td><a [routerLink]="['/precio-producto', precioProducto.id, 'view' ]">{{precioProducto.id}}</a></td>
+                <td>{{precioProducto.precio}}</td>
+                <td>{{precioProducto.cantidad}}</td>
+                <td>
+                    <div *ngIf="precioProducto.productoId">
+                        <a [routerLink]="['../producto', precioProducto.productoId , 'view' ]" >{{precioProducto.productoId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="precioProducto.unidadMedidaId">
+                        <a [routerLink]="['../unidad-medida', precioProducto.unidadMedidaId , 'view' ]" >{{precioProducto.unidadMedidaId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/precio-producto', precioProducto.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/precio-producto', precioProducto.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'precio-producto/'+ precioProducto.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="precioProductos && precioProductos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

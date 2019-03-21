@@ -6,7 +6,16 @@
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Entities",
+                "main": "Managment",
+                "grupo": "Group",
+                "dia": "Day",
+                "itemDia": "Item Day",
+                "comida": "Food",
+                "ingrediente": "Ingredient",
+                "producto": "Product",
+                "calendarioComida": "Food calendar",
+                "precioProducto": "Product price",
+                "unidadMedida": "Unit of measurement",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -98,7 +107,8 @@
             "edit": "Edit",
             "open": "Open",
             "save": "Save",
-            "view": "View"
+            "view": "View",
+            "add" : "Add"
         },
         "detail": {
             "field": "Field",

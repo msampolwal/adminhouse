@@ -1,0 +1,33 @@
+{
+    "name": "Dia",
+    "fields": [
+        {
+            "fieldName": "diaSemana",
+            "fieldType": "DiaSemana",
+            "fieldValues": "LUNES,MARTES,MIERCOLES,JUEVES,VIERNES,SABADO,DOMINGO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "grupo",
+            "otherEntityName": "grupo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "items",
+            "otherEntityName": "itemDia",
+            "otherEntityRelationshipName": "dia"
+        }
+    ],
+    "changelogDate": "20190123040633",
+    "entityTableName": "dia",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

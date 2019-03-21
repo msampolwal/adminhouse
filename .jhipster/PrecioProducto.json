@@ -1,0 +1,44 @@
+{
+    "name": "PrecioProducto",
+    "fields": [
+        {
+            "fieldName": "precio",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "producto",
+            "otherEntityName": "producto",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "precioProducto"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "unidadMedida",
+            "otherEntityName": "unidadMedida",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190123040639",
+    "entityTableName": "precio_producto",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

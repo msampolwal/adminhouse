@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="precioProducto">
+            <h2><span jhiTranslate="adminhouseApp.precioProducto.detail.title">Precio Producto</span> {{precioProducto.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adminhouseApp.precioProducto.precio">Precio</span></dt>
+                <dd>
+                    <span>{{precioProducto.precio}}</span>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.precioProducto.cantidad">Cantidad</span></dt>
+                <dd>
+                    <span>{{precioProducto.cantidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.precioProducto.producto">Producto</span></dt>
+                <dd>
+                    <div *ngIf="precioProducto.productoId">
+                        <a [routerLink]="['/producto', precioProducto.productoId, 'view']">{{precioProducto.productoId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.precioProducto.unidadMedida">Unidad Medida</span></dt>
+                <dd>
+                    <div *ngIf="precioProducto.unidadMedidaId">
+                        <a [routerLink]="['/unidad-medida', precioProducto.unidadMedidaId, 'view']">{{precioProducto.unidadMedidaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/precio-producto', precioProducto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

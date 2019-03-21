@@ -1,0 +1,24 @@
+
+{
+    "adminhouseApp": {
+        "itemDia" : {
+            "home": {
+                "title": "Item Day",
+                "createLabel": "Create a new Item Day",
+                "createOrEditLabel": "Create or edit a Item Day"
+            },
+            "created": "A new Item Day is created with identifier {{ param }}",
+            "updated": "A Item Day is updated with identifier {{ param }}",
+            "deleted": "A Item Day is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Item Day {{ id }}?"
+            },
+            "detail": {
+                "title": "Item Day"
+            },
+            "tipo": "Type",
+            "dia": "Day",
+            "comida": "Food"
+        }
+    }
+}

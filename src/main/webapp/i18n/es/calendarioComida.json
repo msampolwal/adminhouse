@@ -1,0 +1,24 @@
+
+{
+    "adminhouseApp": {
+        "calendarioComida" : {
+            "home": {
+                "title": "Calendario Comidas",
+                "createLabel": "Crear nuevo Calendario Comida",
+                "createOrEditLabel": "Crear o editar Calendario Comida"
+            },
+            "created": "Un nuevo Calendario Comida ha sido creado con el identificador {{ param }}",
+            "updated": "Un Calendario Comida ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Calendario Comida ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Calendario Comida {{ id }}?"
+            },
+            "detail": {
+                "title": "Calendario Comida"
+            },
+            "fecha": "Fecha",
+            "grupo": "Grupo",
+            "dia": "Dia"
+        }
+    }
+}

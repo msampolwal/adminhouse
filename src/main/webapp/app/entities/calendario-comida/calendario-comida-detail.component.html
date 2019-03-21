@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="calendarioComida">
+            <h2><span jhiTranslate="adminhouseApp.calendarioComida.detail.title">Calendario Comida</span> {{calendarioComida.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adminhouseApp.calendarioComida.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{calendarioComida.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.calendarioComida.grupo">Grupo</span></dt>
+                <dd>
+                    <div *ngIf="calendarioComida.grupoId">
+                        <a [routerLink]="['/grupo', calendarioComida.grupoId, 'view']">{{calendarioComida.grupoId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adminhouseApp.calendarioComida.dia">Dia</span></dt>
+                <dd>
+                    <div *ngIf="calendarioComida.diaId">
+                        <a [routerLink]="['/dia', calendarioComida.diaId, 'view']">{{calendarioComida.diaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/calendario-comida', calendarioComida.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
